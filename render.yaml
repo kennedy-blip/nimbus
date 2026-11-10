@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: signal-audit-api
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /health
+    envVars:
+      - key: CORS_ORIGINS
+        sync: false
+      - key: MAX_UPLOAD_BYTES
+        value: "26214400"
